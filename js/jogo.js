@@ -6,7 +6,7 @@ function ajustaTamanhoTela(){
     altura = window.innerHeight
     largura = window.innerWidth
 
-    console.log(largura,altura)
+    
 }
 
 
@@ -24,18 +24,38 @@ function ajustaTamanhoTela(){
         posicaoY = posicaoY<0 ? 0 :posicaoY
 
 
-        console.log(posicaoX,posicaoY)
+        
 
         //cria o elemento html em js e insere no body
         var mosquito = document.createElement('img')
         mosquito.src ="img/mosca.png"
-        mosquito.className ='mosquito1'
+        mosquito.className =tamanhoAleatorio()
         mosquito.style.left = posicaoX + 'px'
         mosquito.style.top = posicaoY +'px'
         mosquito.style.position='absolute'
         document.body.appendChild(mosquito)
         
-        
+        console.log(tamanhoAleatorio())
+        tamanhoAleatorio()
      }
+
+function tamanhoAleatorio(){
+
+    var classe =Math.floor(Math.random() * 3) 
+    switch(classe){
+        case 0:
+            return'mosquito1'
+            
+        case 1:
+            return 'mosquito2'
+            
+        case 2:
+            return 'mosquito3'
+            
+    }
+
+    
+
+}
 
      
