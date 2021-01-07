@@ -2,7 +2,7 @@
 var altura
 var largura
 var vidas=1
-
+var tempo = 10
 
 function ajustaTamanhoTela(){
     altura = window.innerHeight
@@ -14,7 +14,17 @@ function ajustaTamanhoTela(){
 
      ajustaTamanhoTela()
 
-
+    var cronometro = setInterval(function(){
+        tempo--
+        if(tempo<0){
+            clearInterval(cronometro)
+            clearInterval(inicio)
+            alert('vitoria!!!!')
+            window.location.href='vitoria.html'
+        }
+        document.getElementById('cronometro').innerHTML=tempo
+        
+    },1000)
 
      function posicaoRandomica(){
 
@@ -26,6 +36,9 @@ function ajustaTamanhoTela(){
             document.getElementById('mosquito').remove()
 
             if (vidas>3) {
+                clearInterval(inicio)
+                clearInterval(cronometro)
+                
                 alert('interropa o jogo !!')
                 window.location.href='fim_de_jogo.html'
             } else {
