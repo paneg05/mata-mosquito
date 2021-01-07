@@ -1,6 +1,8 @@
 
 var altura
 var largura
+var vidas=1
+
 
 function ajustaTamanhoTela(){
     altura = window.innerHeight
@@ -19,8 +21,26 @@ function ajustaTamanhoTela(){
 
         //remove o mosquito anterior caso exista
         if(document.getElementById('mosquito')){
+
+
             document.getElementById('mosquito').remove()
+
+            if (vidas>3) {
+                alert('interropa o jogo !!')
+                window.location.href='fim_de_jogo.html'
+            } else {
+                 document.getElementById('v'+(vidas)).src='img/coracao_vazio.png'
+                vidas++
+            }
+
+            
+            
+           
         }
+
+       
+
+    
 
 
         // cria cordenadas de forma dinamica
@@ -41,6 +61,10 @@ function ajustaTamanhoTela(){
         mosquito.style.left = posicaoX + 'px'
         mosquito.style.top = posicaoY +'px'
         mosquito.style.position='absolute'
+        mosquito.onclick=function (){
+            this.remove() //this faz referenci ao proprio elemento html que executa a função
+        }
+
         document.body.appendChild(mosquito)
         
         
@@ -75,5 +99,8 @@ function ladoAleatorio (){
             return ' ladoB'
     }
 }
+
+
+
 
      
