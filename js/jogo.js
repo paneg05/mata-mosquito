@@ -4,6 +4,20 @@ var largura
 var vidas=1
 var tempo = 10
 
+var criaMosquitoTempo=1500
+
+var nivel=window.location.search
+nivel=nivel.replace('?','')
+
+if (nivel==='normal') {
+    criaMosquitoTempo=1500
+} else if(nivel==='dificil'){
+    criaMosquitoTempo=1000
+}else if('chuck norris'){
+    criaMosquitoTempo=750
+}
+
+
 function ajustaTamanhoTela(){
     altura = window.innerHeight
     largura = window.innerWidth
